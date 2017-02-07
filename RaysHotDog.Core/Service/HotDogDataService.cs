@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RaysHotDog.Core.Service
 {
-    public class HotDogDataSerevice
+    public class HotDogDataService
     {
         private static HotDogRepository hotDogRepository = new HotDogRepository();
 
