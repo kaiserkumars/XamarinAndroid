@@ -81,6 +81,9 @@ namespace RaysHotDogsAndro
 			// aapt resource value: 0x7f050006
 			public const int cancelButton = 2131034118;
 			
+			// aapt resource value: 0x7f050009
+			public const int hotDogListView = 2131034121;
+			
 			// aapt resource value: 0x7f050000
 			public const int mainScroolView = 2131034112;
 			
@@ -104,7 +107,10 @@ namespace RaysHotDogsAndro
 			public const int HotDogDetailView = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int Main = 2130903041;
+			public const int HotDogMenuView = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int Main = 2130903042;
 			
 			static Layout()
 			{
