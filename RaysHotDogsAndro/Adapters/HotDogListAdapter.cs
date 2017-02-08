@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using RaysHotDog.Core.Model;
+using RaysHotDogsAndro.Utility;
 
 namespace RaysHotDogsAndro.Adapters
 {
@@ -36,13 +37,17 @@ namespace RaysHotDogsAndro.Adapters
         {
             var item = items[position];
 
+            var imageBitmap = ImageHelper.GetImageBitmapFromUrl("http://gillcleerenpluralsight.blob.core.windows.net/files/" + item.ImagePath + ".jpg");
+
             if(convertView==null)
             {
                 convertView =
-                    context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1,null);
+                    context.LayoutInflater.Inflate(Android.Resource.Layout.ActivityListItem,null);
             }
 
             convertView.FindViewById<TextView>(Android.Resource.Id.Text1).Text = item.Name;
+            convertView.FindViewById<ImageView>(Android.Resource.Id.Icon).SetImageBitmap(imageBitmap);
+
             return convertView;
         }
     }
