@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace RaysHotDogsAndro
 {
-    [Activity(Label = "RaysHotDogsAndro", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "RaysHotDogsAndro", MainLauncher = false, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

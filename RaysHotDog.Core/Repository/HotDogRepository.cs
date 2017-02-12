@@ -9,6 +9,53 @@ namespace RaysHotDog.Core.Repository
 {
     public class HotDogRepository
     {
+
+
+        public List<HotDog> GetAllHotDogs()
+        {
+            IEnumerable<HotDog> hotDogs = from hotDogGroup in hotDogGroups
+                                          from hotDog in hotDogGroup.HotDogs
+                                          select hotDog;
+            return hotDogs.ToList<HotDog>();
+        }
+
+        public HotDog GetHotDogByID(int hotDogID)
+        {
+
+            IEnumerable<HotDog> hotDogs = from hotDogGroup in hotDogGroups
+                                          from hotDog in hotDogGroup.HotDogs
+                                          where hotDog.HotDogID == hotDogID
+                                          select hotDog;
+            return hotDogs.FirstOrDefault();
+        }
+
+        public List<HotDogGroup> GetGroupedHotDogs()
+        {
+            return hotDogGroups;
+        }
+
+        public List<HotDog> GetHotDogForGroups(int hotDogGroupID)
+        {
+            var group = hotDogGroups.Where(h => h.HotDogGroupID == hotDogGroupID).FirstOrDefault();
+            if (group != null)
+            {
+                return group.HotDogs;
+
+            }
+
+            return null;
+        }
+
+        public List<HotDog> GetFavouriteHotDogs()
+        {
+            IEnumerable<HotDog> hotDogs = from HotDogGroup in hotDogGroups
+                                          from HotDog in HotDogGroup.HotDogs
+                                          where HotDog.IsFavourite
+                                          select HotDog;
+            return hotDogs.ToList<HotDog>();
+        }
+
+
         public static List<HotDogGroup> hotDogGroups = new List<HotDogGroup>() {
             new HotDogGroup()
             {
@@ -109,47 +156,6 @@ namespace RaysHotDog.Core.Repository
         };
 
 
-        public List<HotDog> GetAllHotDogs()
-        {
-            IEnumerable<HotDog> hotDogs = from HotDogGroup in hotDogGroups
-                                          from HotDog in HotDogGroup.HotDogs
-                                          select HotDog;
-            return hotDogs.ToList<HotDog>(); 
-        }
-
-        public HotDog GetHotDogByID(int hotDogID) {
-
-            IEnumerable<HotDog> hotDogs = from HotDogGroup in hotDogGroups
-                                          from HotDog in HotDogGroup.HotDogs
-                                          where HotDog.HotDogID == hotDogID
-                                          select HotDog;
-            return hotDogs.FirstOrDefault();
-        }
-
-        public List<HotDogGroup> GetGroupedHotDogs()
-        {
-            return hotDogGroups;
-        }
-
-        public List<HotDog> GetHotDogForGroups(int hotDogGroupID)
-        {
-            var group = hotDogGroups.Where(h => h.HotDogGroupID == hotDogGroupID).FirstOrDefault();
-            if (group != null)
-            {
-                return group.HotDogs;
-
-            }
-
-            return null;
-        }
-
-        public List<HotDog> GetFavouriteHotDogs()
-        {
-            IEnumerable<HotDog> hotDogs = from HotDogGroup in hotDogGroups
-                                          from HotDog in HotDogGroup.HotDogs
-                                          where HotDog.IsFavourite
-                                          select HotDog;
-            return hotDogs.ToList<HotDog>();
-        }
+        
     }
 }

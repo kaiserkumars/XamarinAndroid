@@ -15,7 +15,7 @@ using RaysHotDogsAndro.Utility;
 
 namespace RaysHotDogsAndro
 {
-    [Activity(Label = "Hot Dog Detail", MainLauncher =true)]
+    [Activity(Label = "Hot Dog Detail", MainLauncher = false)]
     public class HotDogDetailActivity : Activity
     {
         private ImageView hotDogIV;
@@ -35,8 +35,11 @@ namespace RaysHotDogsAndro
             SetContentView(Resource.Layout.HotDogDetailView);
 
             HotDogDataService dataService = new HotDogDataService();
-            selectedHotDog = dataService.GetHotDogByID(1);
+            //selectedHotDog = dataService.GetHotDogByID(1);
 
+            var selectedHotDogId = Intent.Extras.GetInt("selectedHotDogId");
+            selectedHotDog = dataService.GetHotDogByID(selectedHotDogId);
+            
             FindViews();
             BindData();
             HandleEvents();
@@ -83,12 +86,20 @@ namespace RaysHotDogsAndro
         {
             var amount = Int32.Parse(amountET.Text);
 
-            var dialog = new AlertDialog.Builder(this);
-            dialog.SetTitle("Confirmation");
-            dialog.SetMessage("Your Hotdog added to cart!");
-            dialog.Show();
+            // add add to cart functionality here as well
+            //var dialog = new AlertDialog.Builder(this);
+            //dialog.SetTitle("Confirmation");
+            //dialog.SetMessage("Your Hotdog added to cart!");
+            //dialog.Show();
+            var intent = new Intent();
+            intent.PutExtra("selectedHotDogId", selectedHotDog.HotDogID);
+            intent.PutExtra("amount", amount);
+
+            SetResult(Result.Ok, intent);
+
+            this.Finish();
         }
 
-        
+
     }
 }
