@@ -21,6 +21,7 @@ namespace RaysHotDogs
     {
         private ImageView rayPictureImageView;
         private Button takePictureButton;
+        private Button shareButton;
         private File imageDirectory;
         private File imageFile;
         private Bitmap imageBitmap;
@@ -43,18 +44,51 @@ namespace RaysHotDogs
         {
             rayPictureImageView = FindViewById<ImageView>(Resource.Id.rayPictureImageview);
             takePictureButton = FindViewById<Button>(Resource.Id.takePictureButton);
+            shareButton = FindViewById<Button>(Resource.Id.shareButton);
 
         }
 
         private void HandleEvents()
         {
             takePictureButton.Click += TakePictureButton_Click;
+           
+            shareButton.Click += ShareButton_Click; //delegate for share button
+            
         }
+        
 
+        //share button
+        private void ShareButton_Click(object sender, EventArgs e)
+        {
+            if (imageBitmap != null)
+            {
+                var imageUri = Android.Net.Uri.Parse($"file://{imageFile}");
+                Intent sharingIntent = new Intent(Android.Content.Intent.ActionSend);
+                sharingIntent.SetType("image/jpeg");
+                //string shareBodyText = "Text to share.";
+                sharingIntent.PutExtra(Android.Content.Intent.ExtraSubject, "Subject");
+                sharingIntent.PutExtra(Android.Content.Intent.ExtraStream, imageUri);
+                sharingIntent.AddFlags(ActivityFlags.GrantReadUriPermission);
+                StartActivity(Intent.CreateChooser(sharingIntent, "sharing Options"));
+                imageBitmap = null;    //freeing the variable imageBitmap after sharing
+            }
+
+            else
+            {
+                var dialog = new AlertDialog.Builder(this);
+                dialog.SetTitle("Error!");
+                dialog.SetMessage("Please taek a picture first!");
+                dialog.Show();
+            }
+
+            //throw new NotImplementedException();
+        }
+        
         private void TakePictureButton_Click(object sender, EventArgs e)
         {
             Intent intent = new Intent(MediaStore.ActionImageCapture);
             imageFile = new File(imageDirectory, String.Format("PhotoWithRay_{0}.jpg", Guid.NewGuid()));
+            //string s = imageFile.ToString();
             intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(imageFile));
             StartActivityForResult(intent, 0);
               
@@ -69,7 +103,7 @@ namespace RaysHotDogs
             if(imageBitmap!=null)
             {
                 rayPictureImageView.SetImageBitmap(imageBitmap);
-                imageBitmap = null;
+                //imageBitmap = null;
             }
 
             GC.Collect();

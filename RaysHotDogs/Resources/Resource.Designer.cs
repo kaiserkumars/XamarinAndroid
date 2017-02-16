@@ -1822,6 +1822,9 @@ namespace RaysHotDogs
 			// aapt resource value: 0x7f0a003d
 			public const int expanded_menu = 2131361853;
 			
+			// aapt resource value: 0x7f0a0080
+			public const int externalMapButton = 2131361920;
+			
 			// aapt resource value: 0x7f0a0062
 			public const int fragmentContainer = 2131361890;
 			
@@ -1924,8 +1927,8 @@ namespace RaysHotDogs
 			// aapt resource value: 0x7f0a0040
 			public const int radio = 2131361856;
 			
-			// aapt resource value: 0x7f0a0081
-			public const int rayPictureImageview = 2131361921;
+			// aapt resource value: 0x7f0a0082
+			public const int rayPictureImageview = 2131361922;
 			
 			// aapt resource value: 0x7f0a0077
 			public const int right_icon = 2131361911;
@@ -1977,6 +1980,9 @@ namespace RaysHotDogs
 			
 			// aapt resource value: 0x7f0a0055
 			public const int select_dialog_listview = 2131361877;
+			
+			// aapt resource value: 0x7f0a0083
+			public const int shareButton = 2131361923;
 			
 			// aapt resource value: 0x7f0a005c
 			public const int shortDescriptionTextView = 2131361884;
@@ -2035,8 +2041,8 @@ namespace RaysHotDogs
 			// aapt resource value: 0x7f0a0034
 			public const int textSpacerNoTitle = 2131361844;
 			
-			// aapt resource value: 0x7f0a0080
-			public const int textView1 = 2131361920;
+			// aapt resource value: 0x7f0a0081
+			public const int textView1 = 2131361921;
 			
 			// aapt resource value: 0x7f0a0074
 			public const int time = 2131361908;
@@ -2257,22 +2263,25 @@ namespace RaysHotDogs
 			public const int notification_template_part_time = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int select_dialog_item_material = 2130903090;
+			public const int RayMapView = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int select_dialog_multichoice_material = 2130903091;
+			public const int select_dialog_item_material = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int select_dialog_singlechoice_material = 2130903092;
+			public const int select_dialog_multichoice_material = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int support_simple_spinner_dropdown_item = 2130903093;
+			public const int select_dialog_singlechoice_material = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int TakePictureView = 2130903094;
+			public const int support_simple_spinner_dropdown_item = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int VeggieLoversFragment = 2130903095;
+			public const int TakePictureView = 2130903095;
+			
+			// aapt resource value: 0x7f030038
+			public const int VeggieLoversFragment = 2130903096;
 			
 			static Layout()
 			{
