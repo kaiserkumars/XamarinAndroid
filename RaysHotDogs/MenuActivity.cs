@@ -49,10 +49,18 @@ namespace RaysHotDogs
             mapButton.Click += MapButton_Click;
         }
 
+        private void MapButton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(RayMapActivity));
+            StartActivity(intent);
+           // throw new NotImplementedException();
+        }
+
         private void TakePictureButton_Click(object sender, EventArgs e)
         {
             var intent = new Intent(this, typeof(TakePictureActivity));
             StartActivity(intent);
+            //throw new NotImplementedException();
         }
 
         private void AboutButton_Click(object sender, EventArgs e)
@@ -64,12 +72,6 @@ namespace RaysHotDogs
         private void OrderButton_Click(object sender, EventArgs e)
         {
             var intent = new Intent(this, typeof(HotDogMenuActivity));
-            StartActivity(intent);
-        }
-
-        private void MapButton_Click(object sender, EventArgs e)
-        {
-            var intent = new Intent(this, typeof(RayMapActivity));
             StartActivity(intent);
         }
     }
