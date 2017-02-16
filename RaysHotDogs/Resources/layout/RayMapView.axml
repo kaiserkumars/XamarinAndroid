@@ -5,12 +5,11 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-  <Button
-    android:text="Open Google Maps app for Ray!"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"
-  android:id="@+id/externalMapButton"
-  android:layout_margin="10dp"
-  android:gravity="center_horizontal"/>
-
+    <Button
+        android:text="Open Google Maps app for Ray!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/externalMapButton"
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal" />
 </LinearLayout>

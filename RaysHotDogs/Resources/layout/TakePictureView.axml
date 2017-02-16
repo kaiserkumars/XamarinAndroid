@@ -3,10 +3,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:minHeight="25px"
-    android:minWidth="25px">
+    android:minWidth="25px"
+    android:minHeight="25px">
     <TextView
-        android:text="Take a Picture with Ray!"
+        android:text="Take a picture with Ray!"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         android:src="@android:drawable/ic_menu_gallery"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/rayPictureImageview"
+        android:id="@+id/rayPictureImageView"
         android:layout_margin="10dp"
         android:gravity="center_horizontal" />
     <Button
@@ -27,11 +27,4 @@
         android:id="@+id/takePictureButton"
         android:layout_margin="10dp"
         android:gravity="center_horizontal" />
-    <Button
-        android:text="Share"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/shareButton"
-        android:layout_gravity="center_horizontal"
-        android:background="@android:color/holo_red_light" />
 </LinearLayout>

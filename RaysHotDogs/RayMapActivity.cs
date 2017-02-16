@@ -12,23 +12,26 @@ using Android.Widget;
 
 namespace RaysHotDogs
 {
-    [Activity(Label = "Visit Ray's Store")]
+    [Activity(Label = "Visit Ray's store")]
     public class RayMapActivity : Activity
     {
         private Button externalMapButton;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
             SetContentView(Resource.Layout.RayMapView);
+
             FindViews();
+
             HandleEvents();
-            // Create your application here
+
         }
 
         private void FindViews()
         {
             externalMapButton = FindViewById<Button>(Resource.Id.externalMapButton);
-
         }
 
         private void HandleEvents()
@@ -38,8 +41,8 @@ namespace RaysHotDogs
 
         private void ExternalMapButton_Click(object sender, EventArgs e)
         {
-            Android.Net.Uri rayLocatorUri = Android.Net.Uri.Parse("geo:50.846704,4.352446");
-            Intent mapIntent = new Intent(Intent.ActionView, rayLocatorUri);
+            Android.Net.Uri rayLocationUri = Android.Net.Uri.Parse("geo:50.846704,4.352446");
+            Intent mapIntent = new Intent(Intent.ActionView, rayLocationUri);
             StartActivity(mapIntent);
         }
     }
